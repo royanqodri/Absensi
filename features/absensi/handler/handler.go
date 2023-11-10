@@ -15,7 +15,7 @@ type AbsensiHandler struct {
 
 func New(service absensi.AbsensiServiceInterface) *AbsensiHandler {
 	return &AbsensiHandler{
-		absensiService: service, // Mengganti absensiService dengan service
+		absensiService: service, // Mengganti absensiServic
 	}
 }
 
