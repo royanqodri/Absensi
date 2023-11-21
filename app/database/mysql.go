@@ -21,5 +21,5 @@ func InitMysql(cfg *config.AppConfig) *gorm.DB {
 }
 
 func InitialMigration(db *gorm.DB) {
-	db.AutoMigrate(&absensi.Absensi{}, &cuti.Cuti{}, &reimbusment.Reimbursement{}, target.Target{})
+	db.AutoMigrate(&absensi.Absensi{})
 }

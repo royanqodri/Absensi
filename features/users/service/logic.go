@@ -1,7 +1,6 @@
 package service
 
 import (
-	"Absensi-App/app/middlewares"
 	"Absensi-App/features/users"
 	"errors"
 	"mime/multipart"
@@ -82,22 +81,22 @@ func (service *UserService) GetUserById(id uint) (users.UserCore, error) {
 	return result, nil
 }
 
-func New(repo users.UserDataInterface) users.UserServiceInterface {
-	return &UserService{
-		userData: repo,
-		validate: validator.New(),
-	}
-}
+// func New(repo users.UserDataInterface) users.UserServiceInterface {
+// 	return &UserService{
+// 		userData: repo,
+// 		validate: validator.New(),
+// 	}
+// }
 
-func (service *UserService) Login(email string, password string) (dataLogin users.UserCore, token string, err error) {
+// func (service *UserService) Login(email string, password string) (dataLogin users.UserCore, token string, err error) {
 
-	dataLogin, err = service.userData.Login(email, password)
-	if err != nil {
-		return users.UserCore{}, "", err
-	}
-	token, err = middlewares.CreateTokenUser(dataLogin.ID)
-	if err != nil {
-		return users.UserCore{}, "", err
-	}
-	return dataLogin, token, nil
-}
+// 	dataLogin, err = service.userData.Login(email, password)
+// 	if err != nil {
+// 		return users.UserCore{}, "", err
+// 	}
+// 	token, err = middlewares.CreateTokenUser(dataLogin.ID)
+// 	if err != nil {
+// 		return users.UserCore{}, "", err
+// 	}
+// 	return dataLogin, token, nil
+// }

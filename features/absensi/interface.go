@@ -43,7 +43,7 @@ type AbsensiDataInterface interface {
 	Update(input AbsensiEntity, idUser string, id string) error
 	SelectById(absensiID string) (AbsensiEntity, error)
 	SelectAll(token string, param QueryParams) (int64, []AbsensiEntity, error)
-	GetUserByIDAPI(idUser string) (apinodejs.Pengguna, error)
+	// GetUserByIDAPI(idUser string) (apinodejs.Pengguna, error)
 	SelectUserById(idUser string) (PenggunaEntity, error)
 }
 
@@ -52,5 +52,5 @@ type AbsensiServiceInterface interface {
 	Add(idUser string) error
 	Edit(idUser string, id string) error
 	GetById(absensiID string) (AbsensiEntity, error)
-	GetUserByIDAPI(idUser string) (apinodejs.Pengguna, error)
+	// GetUserByIDAPI(idUser string) (apinodejs.Pengguna, error)
 }

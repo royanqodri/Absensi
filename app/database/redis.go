@@ -1,7 +1,7 @@
 package database
 
 import (
-	"be_golang/klp3/app/config"
+	"Absensi-App/app/config"
 	"context"
 
 	"github.com/go-redis/redis/v8"
@@ -10,8 +10,8 @@ import (
 func InitRedis(cfg *config.AppConfig) *redis.Client {
 	ctx := context.Background()
 	client := redis.NewClient(&redis.Options{
-		Addr:     cfg.IP_Public_Redis, 
-		Password: cfg.Pass_Redis,  
+		Addr:     cfg.IP_Public_Redis,
+		Password: cfg.Pass_Redis,
 	})
 
 	_, err := client.Ping(ctx).Result()

@@ -30,18 +30,6 @@ func (service *AbsensiService) GetById(absensiID string) (absensi.AbsensiEntity,
 	return result, nil
 }
 
-// GetUserByIDAPI implements absensi.AbsensiServiceInterface
-func (service *AbsensiService) GetUserByIDAPI(idUser string) (apinodejs.Pengguna, error) {
-	// Panggil metode GetUserByIDFromExternalAPI dari lapisan data absensiRepo
-	user, err := service.absensiService.GetUserByIDAPI(idUser)
-	if err != nil {
-		log.Printf("Error consume api in service: %s", err.Error())
-		return apinodejs.Pengguna{}, err
-	}
-	log.Println("consume api in service successfully")
-	return user, nil
-}
-
 // Add implements absensi.AbsensiServiceInterface
 func (service *AbsensiService) Add(idUser string) error {
 	var input absensi.AbsensiEntity
@@ -186,9 +174,9 @@ func (service *AbsensiService) Get(token string, idUser string, param absensi.Qu
 	return nextPage, data, nil
 }
 
-func New(service absensi.AbsensiDataInterface) absensi.AbsensiServiceInterface {
-	return &AbsensiService{
-		absensiService: service,
-		validate:       validator.New(),
-	}
-}
+// func New(service absensi.AbsensiDataInterface) absensi.AbsensiServiceInterface {
+// 	return &AbsensiService{
+// 		absensiService: service,
+// 		validate:       validator.New(),
+// 	}
+// }
