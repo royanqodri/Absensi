@@ -45,3 +45,4 @@ jobs:
             docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/absensi-images
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/absensi-images
             docker run -d -p 80:80 -e JWT_KEY=${{ secrets.JWT_KEY }} -e DBUSER=${{ secrets.DBUSER }} -e DBPASS=${{ secrets.DBPASS }} -e DBHOST=${{ secrets.DBHOST }} -e DBPORT=${{ secrets.DBPORT }} -e DBNAME=${{ secrets.DBNAME }} --name absensiContainer ${{ secrets.DOCKERHUB_USERNAME }}/absensi-images:latest
+            
